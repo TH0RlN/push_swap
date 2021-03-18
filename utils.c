@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 19:37:34 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/17 19:37:59 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:52:20 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,18 @@ int		ft_atoi(const char *str)
 		i++;
 	}
 	return (res * neg);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char	*str1;
+	unsigned char	*str2;
+	unsigned int	i;
+
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (str1[i] && str2[i] && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

@@ -3,20 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+         #
+#    By: agianico <agianico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/17 18:56:22 by antmarti          #+#    #+#              #
-#    Updated: 2021/03/17 19:45:38 by antmarti         ###   ########.fr        #
+#    Updated: 2021/03/18 14:13:06 by agianico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= get_next_line.c get_next_line_utils.c checker.c utils.c
+SRCS	= get_next_line.c get_next_line_utils.c checker.c utils.c ft_split.c ft_free.c check_opts.c \
+			exec.c
 
 OBJS =	$(SRCS:.c=.o)
 
 FLAGS =	-Werror -Wextra -Wall
 
-NAME =	push_swap
+NAME =	checker
 
 RM = rm -f
 
