@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/18 14:24:54 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:08:33 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ void	joiner(t_check *check, char *line)
 void	checker(t_check *check)
 {
 	char	*line;
-	int		i;
 
 	line = 0;
-	i = 0;
 	check->vals = 0;
 	while (get_next_line(0, &line))
 	{
@@ -44,8 +42,6 @@ void	checker(t_check *check)
 	}
 	joiner(check, line);
 	check->opts = ft_split(check->vals, '\n');
-	printf("%d\n", check->nums[0][0]);
-	printf("%d\n", check->nums[0][1]);
 	exec(check);
 }
 
@@ -57,6 +53,9 @@ void	stack_creater(t_check *check, int i, char **argv)
 	j = 1;
 	check->nums = malloc(sizeof(int *) * 2);
 	check->nums[0] = malloc(sizeof(int) * i - 1);
+	check->tot_elem = i - 1;
+	check->a_elem = i - 1;
+	check->b_elem = 0;
 	check->nums[1] = 0;
 	while (argv[j])
 	{
@@ -73,7 +72,6 @@ void	stack_creater(t_check *check, int i, char **argv)
 		}
 		j++;
 	}
-	checker(check);
 }
 
 int	main(int argc, char **argv)
@@ -99,6 +97,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	stack_creater(check, i, argv);
+	checker(check);
 	free(check);
 	return (0);
 }

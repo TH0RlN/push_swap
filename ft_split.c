@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:27:02 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/18 12:27:16 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/18 14:43:48 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static unsigned int	ft_loop(char const *s, char c, char **str)
 	return (i);
 }
 
-char				**ft_split(char const *s, char c)
+char				**ft_split(char *s, char c)
 {
 	char			**str;
 	unsigned int	i;

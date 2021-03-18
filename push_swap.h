@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:38:58 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/18 14:13:23 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:07:25 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 
 typedef struct s_check
 {
+	char		**opts;
 	char		*vals;
 	int			**nums;
-	char		**opts;
+	int			tot_elem;
+	int			a_elem;
+	int			b_elem;
 }				t_check;
 
 void			checker(t_check *check);
@@ -37,7 +40,7 @@ int				ft_aux(char **line);
 int				ft_checker(int fd, char **line, char **file, int ret);
 void			ft_free_arr(char **arr);
 void			ft_free_int(int **arr);
-char			**ft_split(char const *s, char c);
+char			**ft_split(char *s, char c);
 char			*ft_strchr(const char *s, int c);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s1);
