@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agianico <agianico@student.42.fr>          +#+  +:+       +#+         #
+#    By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/17 18:56:22 by antmarti          #+#    #+#              #
-#    Updated: 2021/03/18 14:46:03 by agianico         ###   ########.fr        #
+#    Updated: 2021/03/23 18:28:56 by rarias-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= get_next_line.c get_next_line_utils.c checker.c utils.c ft_split.c ft_free.c check_opts.c \
-			exec.c
+			exec.c p_opt.c
 
 OBJS =	$(SRCS:.c=.o)
 

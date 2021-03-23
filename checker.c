@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/18 15:08:33 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/23 18:12:20 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,21 @@ void	stack_creater(t_check *check, int i, char **argv)
 	j = 1;
 	check->nums = malloc(sizeof(int *) * 2);
 	check->nums[0] = malloc(sizeof(int) * i - 1);
+	check->nums[1] = malloc(sizeof(int) * i - 1);
 	check->tot_elem = i - 1;
 	check->a_elem = i - 1;
 	check->b_elem = 0;
-	check->nums[1] = 0;
 	while (argv[j])
 	{
 		check->nums[0][j - 1] = ft_atoi(argv[j]);
-		k = 2;
-		while (j - k >= 0)
+		k = 1;
+		while (j - (++k) >= 0)
 		{
 			if (check->nums[0][j - 1] == check->nums[0][j - k])
 			{
 				ft_free_int(check->nums);
 				exit(printf("Error\n"));
 			}
-			k++;
 		}
 		j++;
 	}
