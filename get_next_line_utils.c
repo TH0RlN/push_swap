@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 19:43:26 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/17 18:21:14 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:48:41 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (((char*)s) + i);
+			return (((char *)s) + i);
 		i++;
 	}
 	if (s[i] == '\0' && c == '\0')
-		return (((char*)s) + i);
+		return (((char *)s) + i);
 	return (NULL);
 }
 

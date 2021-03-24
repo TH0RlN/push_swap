@@ -6,7 +6,7 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 17:38:58 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/23 18:28:14 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:09:27 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_check
 
 void			checker			(t_check *check);
 int				check_opts		(char *opt);
+void			compare			(t_check *check);
 void			exec			(t_check *check);
 int				get_next_line	(int fd, char **line);
 char			*ft_acc			(char *file, char *buffer);
@@ -50,6 +51,8 @@ char			*ft_substr		(char const *s, unsigned int start, size_t len);
 void			p_opt			(t_check *check, int opt);
 void			pa_opt			(t_check *check);
 void			pb_opt			(t_check *check);
+void			r_opt			(t_check *check, int opt);
+void			rr_opt			(t_check *check, int opt);
 void			s_opt			(t_check *check, int opt);
 void			stack_creater	(t_check *check, int i, char **argv);
 

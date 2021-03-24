@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:27:02 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/18 14:43:48 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:50:28 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static unsigned int	ft_wcount(char const *s, char c)
 {
-	unsigned int n;
-	unsigned int w;
+	unsigned int	n;
+	unsigned int	w;
 
 	n = 0;
 	w = 0;
@@ -35,7 +35,7 @@ static unsigned int	ft_wcount(char const *s, char c)
 
 static unsigned int	ft_lcount(char const *s, char c, unsigned int n)
 {
-	unsigned int k;
+	unsigned int	k;
 
 	k = 0;
 	while (*(s + n) != c && *(s + n))
@@ -58,8 +58,7 @@ static unsigned int	ft_loop(char const *s, char c, char **str)
 	{
 		while (s[n] == c)
 			n++;
-		if (!(str[i] = (char *)malloc((ft_lcount(s, c, n) + 1) * sizeof(char))))
-			return (0);
+		str[i] = (char *)malloc((ft_lcount(s, c, n) + 1) * sizeof(char));
 		j = 0;
 		while (j < ft_lcount(s, c, n))
 		{
@@ -73,15 +72,14 @@ static unsigned int	ft_loop(char const *s, char c, char **str)
 	return (i);
 }
 
-char				**ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char			**str;
 	unsigned int	i;
 
 	if (!s)
 		return (0);
-	if (!(str = (char **)malloc((ft_wcount(s, c) + 1) * sizeof(char *))))
-		return (0);
+	str = (char **)malloc((ft_wcount(s, c) + 1) * sizeof(char *));
 	str[ft_wcount(s, c)] = NULL;
 	i = ft_loop(s, c, str);
 	return (str);
