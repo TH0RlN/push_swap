@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 17:00:06 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:30:00 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ int	main(int argc, char **argv)
 	sort(swap);
 	swapping(swap);
 	i = -1;
-	while (++i < swap->a_elem)
-		printf("Antes: %d\t\tDespués: %d\n", swap->nums[0][i], swap->order[i]);
+	/*while (++i < swap->a_elem)
+		printf("Antes: %d\t\tDespués: %d\n", swap->nums[0][i], swap->order[i]);*/
+	printf("%s", swap->inst);
+	free(swap->inst);
+	ft_exit(swap);
 }

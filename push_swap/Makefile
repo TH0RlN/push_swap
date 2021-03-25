@@ -6,11 +6,11 @@
 #    By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 14:23:34 by rarias-p          #+#    #+#              #
-#    Updated: 2021/03/25 16:59:54 by antmarti         ###   ########.fr        #
+#    Updated: 2021/03/25 17:27:54 by antmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_free.c push_swap.c utils.c swapping.c
+SRCS	= ft_free.c push_swap.c utils.c swapping.c get_next_line_utils.c
 
 OBJS =	$(SRCS:.c=.o)
 
