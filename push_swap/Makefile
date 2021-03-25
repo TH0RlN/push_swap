@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 14:23:34 by rarias-p          #+#    #+#              #
-#    Updated: 2021/03/25 14:26:07 by rarias-p         ###   ########.fr        #
+#    Updated: 2021/03/25 16:59:54 by antmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_free.c push_swap.c utils.c
+SRCS	= ft_free.c push_swap.c utils.c swapping.c
 
 OBJS =	$(SRCS:.c=.o)
 
 FLAGS =	-Werror -Wextra -Wall
 
-NAME =	swap
+NAME =	push_swap
 
 RM = rm -f
 

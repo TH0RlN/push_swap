@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 16:14:21 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:00:02 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_swap
 int		ft_atoi		(const char *str);
 void	ft_free_int	(int **arr);
 void	sort		(t_swap *swap);
-void	swaping		(t_swap *swap);
+void	swapping		(t_swap *swap);
+int		compare		(t_swap *swap);
 
 #endif
