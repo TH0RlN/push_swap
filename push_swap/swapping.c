@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaping.c                                          :+:      :+:    :+:   */
+/*   swapping.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 16:19:32 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:59:57 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	joiner(t_swap *swap, char *line)
+/*void	joiner(t_swap *swap, char *line)
 {
 	char	*join;
 
@@ -23,38 +23,30 @@ void	joiner(t_swap *swap, char *line)
 	free (swap->inst);
 	swap->inst = join;
 	return ;
-}
+}*/
 
-void	compare(t_swap *swap)
+int	compare(t_swap *swap)
 {
 	int	i;
 
 	i = 0;
-	printf("\n\nEstas isntrucciones están:\t");
-	if (check->b_elem > 0)
+	if (swap->b_elem > 0)
+		return (1);
+	while (swap->a_elem - 1 > i)
 	{
-		printf("KO\n");
-		return ;
-	}
-	while (check->a_elem - 1 > i)
-	{
-		if (check->nums[0][i] > check->nums[0][i + 1])
-		{
-			printf("KO\n");
-			return ;
-		}
+		if (swap->nums[0][i] > swap->nums[0][i + 1])
+			return (1);
 		i++;
 	}
-	printf("OK\n");
+	return (0);
 }
 
-void	swaping(t_swap *swap)
+void	swapping(t_swap *swap)
 {
-	int i;
-
-	i = 0;
-	while (i < swap->a_elem)
+	if (!compare(swap))
 	{
-			
+		ft_free_int(swap->nums);
+		free(swap);
+		exit(0);
 	}
 }

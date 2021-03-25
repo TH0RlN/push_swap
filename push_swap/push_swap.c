@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 16:17:10 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:00:06 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	stack_creater(t_swap *swap, int i, char **argv)
 	int	k;
 
 	j = 1;
-	swap->nums = malloc(sizeof(int *) * 2);
-	swap->nums[0] = malloc(sizeof(int) * i - 1);
-	swap->nums[1] = malloc(sizeof(int) * i - 1);
-	swap->tot_elem = i - 1;
+	swap->nums = (int **)malloc(sizeof(int *) * 2);
+	swap->nums[0] = (int *)malloc(sizeof(int) * i);
+	swap->nums[1] = (int *)malloc(sizeof(int) * i);
 	swap->a_elem = i - 1;
 	swap->b_elem = 0;
+	swap->tot_elem = i - 1;
 	while (argv[j])
 	{
 		swap->nums[0][j - 1] = ft_atoi(argv[j]);
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	int		j;
 	t_swap	*swap;
 
-	swap = malloc(sizeof(t_swap *));
+	swap = malloc(sizeof(t_swap));
 	i = 1;
 	if (argc < 2)
 		return (0);
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	}
 	stack_creater(swap, i, argv);
 	sort(swap);
-	swaping(swap);
+	swapping(swap);
 	i = -1;
 	while (++i < swap->a_elem)
 		printf("Antes: %d\t\tDespués: %d\n", swap->nums[0][i], swap->order[i]);
