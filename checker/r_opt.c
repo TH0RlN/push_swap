@@ -6,11 +6,11 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:07:34 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/24 17:44:47 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 13:44:24 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	rb_opt(t_check *check)
 {

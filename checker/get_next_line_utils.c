@@ -6,11 +6,11 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 19:43:26 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/24 18:48:41 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 13:44:24 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
