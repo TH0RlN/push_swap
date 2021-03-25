@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 17:38:58 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/24 18:09:27 by rarias-p         ###   ########.fr       */
+/*   Created: 2021/03/25 13:45:35 by rarias-p          #+#    #+#             */
+/*   Updated: 2021/03/25 13:45:39 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif

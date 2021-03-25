@@ -6,11 +6,11 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:01:25 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/24 18:48:59 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 13:44:24 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 char	*ft_acc(char *file, char *buffer)
 {

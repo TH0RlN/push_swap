@@ -6,11 +6,11 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/24 18:14:14 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/25 15:26:35 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	joiner(t_check *check, char *line)
 {
@@ -71,6 +71,7 @@ void	stack_creater(t_check *check, int i, char **argv)
 			if (check->nums[0][j - 1] == check->nums[0][j - k])
 			{
 				ft_free_int(check->nums);
+				free(check);
 				exit(printf("Error\n"));
 			}
 		}
