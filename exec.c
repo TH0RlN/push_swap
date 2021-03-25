@@ -6,7 +6,7 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 13:57:34 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/23 18:18:33 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/24 17:55:22 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	s_opt(t_check *check, int opt)
 			temp = check->nums[0][0];
 			check->nums[0][0] = check->nums[0][1];
 			check->nums[0][1] = temp;
-			printf("%d\n", check->nums[0][0]);
-			printf("%d\n", check->nums[0][1]);
 		}
 	}
 	else if (opt == 2)
@@ -53,6 +51,13 @@ void	exec(t_check *check)
 	int	opt;
 
 	i = 0;
+	/**/printf("\n\n\n===== STEP: %3d =====\n", i);
+	/**/printf("A:\n");
+	/**/for (int k = 0; k < check->a_elem; k++)
+	/**/	printf("\t%d:\t%d\n", k, check->nums[0][k]);
+	/**/printf("B:\n");
+	/**/for (int k = 0; k < check->b_elem; k++)
+	/**/	printf("\t%d:\t%d\n", k, check->nums[1][k]);
 	while (check->opts[i])
 	{
 		opt = check_opts(check->opts[i]);
@@ -60,6 +65,17 @@ void	exec(t_check *check)
 			s_opt(check, opt);
 		else if (opt > 3 && opt < 6)
 			p_opt(check, opt);
+		else if (opt > 5 && opt < 9)
+			r_opt(check, opt);
+		else if (opt > 8 && opt < 12)
+			rr_opt(check, opt);
+		/**/printf("\n\n\n===== STEP: %3d =====\n\n", i + 1);
+		/**/printf("A:\n");
+		/**/for (int k = 0; k < check->a_elem; k++)
+		/**/	printf("\t%d:\t%d\n", k, check->nums[0][k]);
+		/**/printf("B:\n");
+		/**/for (int k = 0; k < check->b_elem; k++)
+		/**/	printf("\t%d:\t%d\n", k, check->nums[1][k]);
 		i++;
 	}
 }

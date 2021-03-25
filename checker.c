@@ -6,7 +6,7 @@
 /*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/23 18:12:20 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:14:14 by rarias-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ void	joiner(t_check *check, char *line)
 void	checker(t_check *check)
 {
 	char	*line;
+	int		i;
 
+	i = 0;
 	line = 0;
 	check->vals = 0;
 	while (get_next_line(0, &line))
@@ -39,7 +41,10 @@ void	checker(t_check *check)
 			check->vals = ft_strdup(line);
 		else
 			joiner(check, line);
+		i++;
 	}
+	if (!i)
+		return ;
 	joiner(check, line);
 	check->opts = ft_split(check->vals, '\n');
 	exec(check);
@@ -97,6 +102,7 @@ int	main(int argc, char **argv)
 	}
 	stack_creater(check, i, argv);
 	checker(check);
+	compare(check);
 	free(check);
 	return (0);
 }
