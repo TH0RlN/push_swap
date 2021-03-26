@@ -3,40 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   swapping.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 17:26:03 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:11:24 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*void	joiner(t_swap *swap, char *line)
+void	joiner(t_swap *swap, char *line)
 {
 	char	*join;
 
-	join = ft_strjoin(swap->inst, "\n");
-	free (swap->inst);
-	swap->inst = join;
-	join = ft_strjoin(swap->inst, line);
-	free (swap->inst);
-	swap->inst = join;
-	return ;
-}*/
-
-void	three_numbers(t_swap *swap)
-{
-	if (swap->pos[0] == 0 && swap->pos[1] == 2 && swap->pos[2] == 1)
-		swap->inst = ft_strdup("sa\nra\n");
-	else if (swap->pos[0] == 2 && swap->pos[1] == 1 && swap->pos[2] == 0)
-		swap->inst = ft_strdup("sa\nrra\n");
-	else if (swap->pos[0] == 2 && swap->pos[1] == 0 && swap->pos[2] == 1)
-		swap->inst = ft_strdup("ra\n");
-	else if (swap->pos[0] == 1 && swap->pos[1] == 2 && swap->pos[2] == 0)
-		swap->inst = ft_strdup("rra\n");
-	else if (swap->pos[0] == 1 && swap->pos[1] == 0 && swap->pos[2] == 2)
-		swap->inst = ft_strdup("sa\n");
+	if (!swap->inst)
+		swap->inst = ft_strdup(line);
+	else
+	{
+		join = ft_strjoin(swap->inst, line);
+		free (swap->inst);
+		swap->inst = join;
+	}
 }
 
 void	ft_exit(t_swap *swap)
@@ -70,4 +57,6 @@ void	swapping(t_swap *swap)
 		swap->inst = ft_strdup("sa\n");
 	else if (swap->a_elem == 3)
 		three_numbers(swap);
+	else if (swap->a_elem == 5)
+		five_numbers(swap);
 }

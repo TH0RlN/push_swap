@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:45:35 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 13:45:39 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:37:47 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void			pb_opt			(t_check *check);
 void			r_opt			(t_check *check, int opt);
 void			rr_opt			(t_check *check, int opt);
 void			s_opt			(t_check *check, int opt);
+void			s_opt3			(t_check *check);
 void			stack_creater	(t_check *check, int i, char **argv);
 
 #endif

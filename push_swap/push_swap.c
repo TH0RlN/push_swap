@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 17:30:00 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:01:31 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void	sort(t_swap *swap)
 				swap->pos[i]++;
 		}
 	}
-	swap->order = malloc(swap->a_elem * sizeof(int));
-	i = -1;
-	while (++i < swap->a_elem)
-		swap->order[swap->pos[i]] = swap->nums[0][i];
 }
 
 void	stack_creater(t_swap *swap, int i, char **argv)
@@ -89,7 +85,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	stack_creater(swap, i, argv);
-	sort(swap);
 	swapping(swap);
 	i = -1;
 	/*while (++i < swap->a_elem)
