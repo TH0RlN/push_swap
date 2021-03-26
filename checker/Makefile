@@ -6,7 +6,7 @@
 #    By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/17 18:56:22 by antmarti          #+#    #+#              #
-#    Updated: 2021/03/24 18:09:41 by rarias-p         ###   ########.fr        #
+#    Updated: 2021/03/26 16:45:17 by rarias-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -f
 
 $(NAME):
 		gcc -c $(FLAGS) $(SRCS)
-		gcc $(FLAGS) $(SRCS) -o $(NAME)
+		gcc $(FLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 

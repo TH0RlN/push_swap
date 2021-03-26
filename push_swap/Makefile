@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+         #
+#    By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 14:23:34 by rarias-p          #+#    #+#              #
-#    Updated: 2021/03/25 17:27:54 by antmarti         ###   ########.fr        #
+#    Updated: 2021/03/26 16:46:22 by rarias-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RM = rm -f
 
 $(NAME):
 		gcc -c $(FLAGS) $(SRCS)
-		gcc $(FLAGS) $(SRCS) -o $(NAME)
+		gcc $(FLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 
