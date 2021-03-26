@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:17:57 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 17:45:00 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:15:30 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	pa_opt(t_swap *swap)
 		}
 		swap->nums[0][0] = temp;
 		swap->a_elem++;
+		joiner(swap, "pa\n");
 	}
 }
 
@@ -63,6 +64,7 @@ void	pb_opt(t_swap *swap)
 		}
 		swap->nums[1][0] = temp;
 		swap->b_elem++;
+		joiner(swap, "pb\n");
 	}
 }
 

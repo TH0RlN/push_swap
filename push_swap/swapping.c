@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 18:11:24 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:09:11 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	swapping(t_swap *swap)
 		swap->inst = ft_strdup("sa\n");
 	else if (swap->a_elem == 3)
 		three_numbers(swap);
-	else if (swap->a_elem == 5)
+	else if (swap->a_elem == 5 || swap->a_elem == 4)
 		five_numbers(swap);
 }
