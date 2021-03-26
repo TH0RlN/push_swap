@@ -23,7 +23,7 @@ RM = rm -f
 
 $(NAME):
 		gcc -c $(FLAGS) $(SRCS)
-		gcc $(FLAGS) $(SRCS) -o $(NAME)
+		gcc $(FLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 
