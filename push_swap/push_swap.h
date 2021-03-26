@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/25 17:00:02 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:29:10 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ typedef struct s_swap
 	char		*inst;
 }				t_swap;
 
-int		ft_atoi		(const char *str);
-void	ft_free_int	(int **arr);
-void	sort		(t_swap *swap);
+int		compare			(t_swap *swap);
+int		ft_atoi			(const char *str);
+void	ft_exit			(t_swap *swap);
+void	ft_free_int		(int **arr);
+char	*ft_strdup		(const char *s1);
+size_t	ft_strlen		(const char *s);
+void	sort			(t_swap *swap);
 void	swapping		(t_swap *swap);
-int		compare		(t_swap *swap);
+void	three_numbers	(t_swap *swap);
 
 #endif
