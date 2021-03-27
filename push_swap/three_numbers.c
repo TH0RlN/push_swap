@@ -16,14 +16,20 @@ void	three_numbers(t_swap *swap)
 {
 	sort(swap);
 	if (swap->pos[0] == 0 && swap->pos[1] == 2 && swap->pos[2] == 1)
-		joiner(swap, "sa\nra\n");
+	{
+		s_opt(swap, 1);
+		r_opt(swap, 6);
+	}
 	else if (swap->pos[0] == 2 && swap->pos[1] == 1 && swap->pos[2] == 0)
-		joiner(swap, "sa\nrra\n");
+	{
+		s_opt(swap, 1);
+		rr_opt(swap, 9);
+	}
 	else if (swap->pos[0] == 2 && swap->pos[1] == 0 && swap->pos[2] == 1)
-		joiner(swap, "ra\n");
+		r_opt(swap, 6);
 	else if (swap->pos[0] == 1 && swap->pos[1] == 2 && swap->pos[2] == 0)
-		joiner(swap, "rra\n");
+		rr_opt(swap, 9);
 	else if (swap->pos[0] == 1 && swap->pos[1] == 0 && swap->pos[2] == 2)
-		joiner(swap, "sa\n");
+		s_opt(swap, 1);
 	free(swap->pos);
 }
