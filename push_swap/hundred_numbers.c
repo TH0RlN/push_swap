@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/30 21:47:31 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:32:47 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,4 +150,8 @@ void	hundred_numbers(t_swap *swap)
 			get_number_bottom(swap, j);*/
 		k++;
 	}
+	while(swap->nums[1][0] != swap->b_elem - 1)
+		rr_opt(swap, 10);	
+	while(swap->a_elem < 100)
+		pa_opt(swap);
 }
