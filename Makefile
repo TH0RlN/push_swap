@@ -3,20 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: agianico <agianico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:31:40 by rarias-p          #+#    #+#              #
-#    Updated: 2021/03/26 17:36:46 by rarias-p         ###   ########.fr        #
+#    Updated: 2021/03/26 18:34:17 by agianico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_SW=	push_swap/ft_free.c push_swap/push_swap.c push_swap/utils.c \
-			push_swap/swapping.c push_swap/get_next_line_utils.c
+			push_swap/swapping.c push_swap/get_next_line_utils.c push_swap/s_opt.c \
+			push_swap/five_numbers.c push_swap/three_numbers.c push_swap/p_opt.c \
+			push_swap/r_opt.c push_swap/rr_opt.c
 
 SRCS_CH=	checker/get_next_line.c checker/get_next_line_utils.c \
 			checker/checker.c checker/utils.c checker/ft_split.c \
 			checker/ft_free.c checker/check_opts.c checker/exec.c \
-			checker/p_opt.c checker/r_opt.c checker/rr_opt.c checker/compare.c
+			checker/p_opt.c checker/r_opt.c checker/rr_opt.c checker/compare.c \
+			checker/s_opt.c
 
 FLAGS =	-Werror -Wextra -Wall
 
@@ -32,7 +35,8 @@ OBJS=	ft_free.o push_swap.o utils.o \
 		get_next_line.o get_next_line_utils.o \
 		checker.o utils.o ft_split.o \
 		ft_free.o check_opts.o exec.o \
-		p_opt.o r_opt.o rr_opt.o compare.o
+		p_opt.o r_opt.o rr_opt.o compare.o s_opt.o \
+		five_numbers.o three_numbers.o
 
 NAME_SW = push_swap/push_swap
 
@@ -45,7 +49,7 @@ $(NAME_CH):
 $(NAME_SW):
 		gcc -c $(FLAGS) $(SRCS_SW)
 		gcc $(FLAGS) $(SRCS_SW) -o $(NAME_SW)
-		
+
 all: 	$(NAME_CH) $(NAME_SW)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:46:14 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 17:46:43 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:25:11 by agianico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,19 @@ void	rra_opt(t_swap *swap)
 void	rr_opt(t_swap *swap, int opt)
 {
 	if (opt == 9)
+	{
 		rra_opt(swap);
+		joiner(swap, "rra\n");
+	}
 	else if (opt == 10)
+	{
 		rrb_opt(swap);
+		joiner(swap, "rrb\n");
+	}
 	else if (opt == 11)
 	{
 		rra_opt(swap);
 		rrb_opt(swap);
+		joiner(swap, "rrr\n");
 	}
 }

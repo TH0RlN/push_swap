@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 18:01:31 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:00:45 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	main(int argc, char **argv)
 	t_swap	*swap;
 
 	swap = malloc(sizeof(t_swap));
+	swap->inst = 0;
 	i = 1;
 	if (argc < 2)
 		return (0);

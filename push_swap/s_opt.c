@@ -16,6 +16,7 @@ void	s_opt3(t_swap *swap)
 {
 	s_opt(swap, 1);
 	s_opt(swap, 2);
+	joiner(swap, "ss\n");
 }
 
 void	s_opt(t_swap *swap, int opt)
@@ -31,6 +32,7 @@ void	s_opt(t_swap *swap, int opt)
 			swap->nums[0][0] = swap->nums[0][1];
 			swap->nums[0][1] = temp;
 		}
+		joiner(swap, "sa\n");
 	}
 	else if (opt == 2)
 	{
@@ -40,6 +42,7 @@ void	s_opt(t_swap *swap, int opt)
 			swap->nums[1][0] = swap->nums[1][1];
 			swap->nums[1][1] = temp;
 		}
+		joiner(swap, "sb\n");
 	}
 	else if (opt == 3)
 		s_opt3(swap);
