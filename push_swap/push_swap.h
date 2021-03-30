@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 18:15:02 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:02:52 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_free_int		(int **arr);
 char	*ft_strdup		(const char *s1);
 char	*ft_strjoin		(char const *s1, char const *s2);
 size_t	ft_strlen		(const char *s);
+void	hundred_numbers	(t_swap *swap);
 void	joiner			(t_swap *swap, char *line);
 void	p_opt			(t_swap *swap, int opt);
 void	pa_opt			(t_swap *swap);

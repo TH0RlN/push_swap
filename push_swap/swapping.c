@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swapping.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 19:09:11 by agianico         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:05:30 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,6 @@ void	swapping(t_swap *swap)
 		three_numbers(swap);
 	else if (swap->a_elem == 5 || swap->a_elem == 4)
 		five_numbers(swap);
+	else
+		hundred_numbers(swap);
 }

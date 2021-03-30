@@ -35,9 +35,9 @@ int move_number(t_swap *swap, int *pos, int *bool)
 				*pos = i;
 			}
 		}
-		//printf("******%d y %d\n", min, *pos);
 		i++;
 	}
+	//printf("******%d y %d\n", min, *pos);
 	return (min);
 }
 
@@ -68,12 +68,16 @@ void	five_numbers(t_swap *swap)
 			pa_opt(swap);
 			rr_opt(swap, 9);
 		}
-		else if (pos == 2)
+		else if (pos == 2 || pos == 3)
 		{
 			rr_opt(swap, 9);
+			if (swap->a_elem == 4 && pos == 2)
+				rr_opt(swap, 9);
 			pa_opt(swap);
 			r_opt(swap, 6);
 			r_opt(swap, 6);
+			if (swap->a_elem == 5 && pos == 2)
+				r_opt(swap, 6);
 		}
 		else
 			pa_opt(swap);
