@@ -6,11 +6,40 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/01 16:16:37 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/01 19:18:16 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_order(int *arr, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i + 1 < len)
+	{
+		if (arr[i] > arr[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	get_mid_point(int *arr, int len)
+{
+	int	i;
+	int	sum;
+
+	i = 0;
+	sum = 0;
+	while (i < len)
+	{
+		sum += arr[i];
+		i++;
+	}
+	return (sum / len);
+}
 
 int	move_number_rev(t_swap *swap, int *bool)
 {
@@ -39,7 +68,6 @@ int	move_number_rev(t_swap *swap, int *bool)
 		}
 		i++;
 	}
-	//printf("******%d y %d\n", min, *pos);
 	return (pos);
 }
 
@@ -100,21 +128,7 @@ void	order_b(t_swap *swap)
 
 void	get_number_top(t_swap *swap, int i)
 {
-	while (i > 0)
-	{
-		r_opt(swap, 6);
-		i--;
-	}
-	order_b(swap);
-}
-
-void	get_number_bottom(t_swap *swap, int j)
-{
-	while (j < swap->a_elem)
-	{
-		rr_opt(swap, 9);
-		j++;
-	}
+	i = 0;
 	order_b(swap);
 }
 
@@ -122,37 +136,40 @@ void	hundred_numbers(t_swap *swap)
 {
 	int	i;
 	int	j;
-	int	k;
+	int	mdp;
 
 	sort(swap);
 	i = -1;
 	while (++i < swap->a_elem)
 		swap->nums[0][i] = swap->pos[i];
 	i = -1;
-	k = 0;
-	j = swap->a_elem;
-	while (k < swap->tot_elem)
+	j = -1;
+	mdp = 0;
+	while (swap->b_elem != 0 || check_order(swap->nums[0], swap->a_elem))
 	{
-		/*while ( ++i < swap->a_elem / 2 + 1)
+		if (check_order(swap->nums[0], swap->a_elem))
 		{
-			if (swap->nums[0][i] < (k/50 + 1) * 50)
-				break ;
+			j = -1;
+			mdp = get_mid_point(swap->nums[0], swap->a_elem);
+			while (++j < swap->a_elem / 2)
+			{
+				if (swap->nums[0][0] < mdp)
+					pb_opt(swap);
+				else if (swap->nums[0][swap->a_elem - 1]
+					< mdp)
+				{
+					rr_opt(swap, 9);
+					pb_opt(swap);
+				}
+				else
+					r_opt(swap, 6);
+			}
 		}
-		while (--j > swap->a_elem / 2 - 1)
+		if (swap->a_elem < 3)
 		{
-			//printf("j: %d\n", j);
-			if (swap->nums[0][j] < (k/50 + 1) * 50)
-				break ;
+			if (check_order(swap->nums[0], swap->a_elem))
+				s_opt(swap, 1);
+			break ;
 		}
-		//printf("*****%d     %d\n", i, j);
-		if (i <= swap->a_elem - j)*/
-		get_number_top(swap, i);
-		/*else
-			get_number_bottom(swap, j);*/
-		k++;
 	}
-	while (swap->nums[1][0] != swap->b_elem - 1)
-		rr_opt(swap, 10);
-	while (swap->a_elem < swap->tot_elem)
-		pa_opt(swap);
 }

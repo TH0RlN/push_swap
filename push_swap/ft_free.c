@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarias-p <rarias-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:48:06 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/25 14:39:06 by rarias-p         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:02:27 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ft_free_arr(char **arr)
 	free(arr);
 }
 
-void	ft_free_int(int **arr)
+void	ft_free_int(t_swap *swap, int **arr)
 {
-	free(arr[0]);
-	free(arr[1]);
+	while (-- swap->chunk_num >= 0)
+		free(arr[swap->chunk_num]);
 	free(arr);
 }

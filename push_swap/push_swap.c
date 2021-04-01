@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/01 16:42:59 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:13:02 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,18 @@ void	stack_creater(t_swap *swap, int i, char **argv)
 	int	j;
 	int	k;
 
+	k = i - 1;
+	swap->chunk_num = 2;
+	while (k > 2)
+	{
+		swap->chunk_num++;
+		k /= 2;
+	}
+	swap->nums = (int **)malloc(sizeof(int *) * swap->chunk_num);
+	k = -1;
+	while (++k < swap->chunk_num)
+		swap->nums[k] = (int *)malloc(sizeof(int) * i);
 	j = 1;
-	swap->nums = (int **)malloc(sizeof(int *) * 2);
-	swap->nums[0] = (int *)malloc(sizeof(int) * i);
-	swap->nums[1] = (int *)malloc(sizeof(int) * i);
 	swap->a_elem = i - 1;
 	swap->b_elem = 0;
 	swap->tot_elem = i - 1;
@@ -53,7 +61,7 @@ void	stack_creater(t_swap *swap, int i, char **argv)
 		{
 			if (swap->nums[0][j - 1] == swap->nums[0][j - k])
 			{
-				ft_free_int(swap->nums);
+				ft_free_int(swap, swap->nums);
 				free(swap);
 				exit(printf("Error\n"));
 			}
