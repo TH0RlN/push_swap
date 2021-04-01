@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/30 18:05:30 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:02:49 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	joiner(t_swap *swap, char *line)
 
 void	ft_exit(t_swap *swap)
 {
-	ft_free_int(swap->nums);
+	ft_free_int(swap, swap->nums);
 	free(swap);
 	exit(0);
 }
