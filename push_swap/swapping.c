@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/01 18:02:49 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/02 19:43:45 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void	swapping(t_swap *swap)
 	else if (swap->a_elem == 5 || swap->a_elem == 4)
 		five_numbers(swap);
 	else
-		hundred_numbers(swap);
+		hundred_numbers(swap, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/01 19:25:08 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/02 19:44:44 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ typedef struct s_swap
 }				t_swap;
 
 int		check_opts		(char *opt);
+void	chunk_pa		(t_swap *swap, int num);
+void	chunk_pb		(t_swap *swap, int num);
+void	chunk_rb		(t_swap *swap, int num);
+void	chunk_rrb		(t_swap *swap, int num);
 int		compare			(t_swap *swap);
 void	five_numbers	(t_swap *swap);
 int		ft_atoi			(const char *str);
@@ -43,7 +47,7 @@ char	*ft_strdup		(const char *s1);
 char	*ft_strjoin		(char const *s1, char const *s2);
 size_t	ft_strlen		(const char *s);
 void	get_number_top	(t_swap *swap, int i);
-void	hundred_numbers	(t_swap *swap);
+void	hundred_numbers	(t_swap *swap, int check);
 void	joiner			(t_swap *swap, char *line);
 void	p_opt			(t_swap *swap, int opt);
 void	pa_opt			(t_swap *swap);
