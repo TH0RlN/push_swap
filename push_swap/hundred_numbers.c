@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/01 19:18:16 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/01 19:30:33 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,8 @@ void	hundred_numbers(t_swap *swap)
 		if (check_order(swap->nums[0], swap->a_elem))
 		{
 			j = -1;
+			i++;
+			swap->chunks_len[i] = swap->a_elem / 2;
 			mdp = get_mid_point(swap->nums[0], swap->a_elem);
 			while (++j < swap->a_elem / 2)
 			{
