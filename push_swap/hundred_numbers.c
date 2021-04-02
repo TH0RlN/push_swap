@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/02 17:55:17 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:14:35 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,14 @@ void	hundred_numbers(t_swap *swap)
 	sort(swap);
 	i = -1;
 	while (++i < swap->a_elem)
-	{
-		//printf("POS: %d    NUM %d\n", swap->pos[i], swap->nums[0][i]);
 		swap->nums[0][i] = swap->pos[i];
-	}
 	i = -1;
 	j = -1;
 	mdp = 0;
 	while (swap->b_elem != 0 || check_order(swap->nums[0], swap->a_elem))
 	{
+		//while (++j < swap->a_elem)
+			//printf("****NUM %d len:%d\n", swap->nums[0][j], swap->a_elem);
 		if (check_order(swap->nums[0], swap->a_elem))
 		{
 			j = -1;
@@ -101,7 +100,10 @@ void	hundred_numbers(t_swap *swap)
 			//printf("********%d\n", i);
 			swap->chunks_len[i] = 0;
 			mdp = get_mid_point(swap->nums[0], swap->a_elem);
-			len_a = swap->a_elem / 2;
+			if (swap->a_elem % 2 != 0)
+				len_a = swap->a_elem / 2 + 1;
+			else
+				len_a = swap->a_elem / 2;
 			while (swap->chunks_len[i] < len_a - 1)
 			{
 				//printf("-----%d    %d\n", swap->chunks_len[i], len_a);
@@ -121,8 +123,6 @@ void	hundred_numbers(t_swap *swap)
 					r_opt(swap, 6);
 			}
 		}
-		else
-			break ;
 		if (swap->a_elem < 3)
 		{
 			if (check_order(swap->nums[0], swap->a_elem))
