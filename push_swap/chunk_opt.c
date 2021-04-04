@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:21:38 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/04 23:15:55 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 00:58:55 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	chunk_pb(t_swap *swap, int num)
 	}
 }
 
-void	chunk_rb(t_swap *swap, int num)
+void	chunk_rb(int *chunk, int len)
 {
 	int	i;
 	int	temp;
 
 	i = -1;
-	if (swap->chunks_len[num] > 1)
+	if (len > 1)
 	{
-		temp = swap->nums[num + 2][0];
-		while (++i < swap->chunks_len[num] - 1)
-			swap->nums[num + 2][i] = swap->nums[num + 2][i + 1];
-		swap->nums[num + 2][i] = temp;
+		temp = chunk[0];
+		while (++i < len - 1)
+			chunk[i] = chunk[i + 1];
+		chunk[i] = temp;
 	}
 }
 
@@ -63,17 +63,17 @@ void	chunk_pa(int *chunk, int *len)
 	*len = j;
 }
 
-void	chunk_rrb(t_swap *swap, int num)
+void	chunk_rrb(int *chunk, int len)
 {
 	int	i;
 	int	temp;
 
-	i = swap->chunks_len[num];
-	if (swap->chunks_len[num] > 1)
+	i = len;
+	if (len > 1)
 	{
-		temp = swap->nums[num + 2][swap->chunks_len[num] - 1];
+		temp = chunk[len - 1];
 		while (--i > 0)
-			swap->nums[num + 2][i] = swap->nums[num + 2][i - 1];
-		swap->nums[num + 2][0] = temp;
+			chunk[i] = chunk[i - 1];
+		chunk[0] = temp;
 	}
 }

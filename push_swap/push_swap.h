@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/04 23:16:51 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 00:59:32 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_swap
 int		check_opts		(char *opt);
 void	chunk_pa		(int *chunk, int *len);
 void	chunk_pb		(t_swap *swap, int num);
-void	chunk_rb		(t_swap *swap, int num);
-void	chunk_rrb		(t_swap *swap, int num);
+void	chunk_rb		(int *chunk, int len);
+void	chunk_rrb		(int *chunk, int len);
 int		compare			(t_swap *swap);
 void	five_numbers	(t_swap *swap);
 int		ft_atoi			(const char *str);

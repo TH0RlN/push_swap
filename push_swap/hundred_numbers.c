@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/04 23:21:31 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 01:07:37 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,21 @@ void	hundred_numbers(t_swap *swap)
 	swap->chunk_a_len = 0;
 	while (swap->b_elem != 0 || check_order(swap->nums[0], swap->a_elem))
 	{
+
 		if (check_order(swap->nums[0], swap->a_elem))
 		{
 			if (!swap->chunk_a_len)
 				mid_point_algo(swap, swap->nums[0], swap->a_elem);
 			else
 			{
-				mid_point_algo(swap, swap->chunk_a,swap->chunk_a_len);
-				break ;	
+				if (swap->chunk_a_len < 3)
+				{
+						s_opt(swap, 1);
+						swap->chunk_a_len = 0;
+				}
+				else
+					mid_point_algo(swap, swap->chunk_a,swap->chunk_a_len);
+				//break ;
 			}
 		}
 		else
@@ -114,6 +121,13 @@ void	hundred_numbers(t_swap *swap)
 			if (check_order(swap->nums[0], swap->a_elem))
 				s_opt(swap, 1);
 		}
+		/*j = -1;
+		while (++j < swap->a_elem)
+			printf("****NUM %d len:%d\n", swap->nums[0][j], swap->a_elem);
+		j = -1;
+		while (++j < swap->b_elem)
+			printf("<<<<NUM %d len:%d\n", swap->nums[1][j], swap->b_elem);
+		printf("MDP: %d CHUNK %d\n", mdp, swap->chunk_pos);*/
 		//printf("a elem: %d\n", swap->a_elem);
 	}
 }
