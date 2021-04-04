@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/02 19:44:44 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/04 23:16:51 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ typedef struct s_swap
 	int			opts;
 	int			chunk_num;
 	int			*chunks_len;
+	int			*chunk_a;
+	int			chunk_a_len;
+	int			chunk_pos;
 }				t_swap;
 
 int		check_opts		(char *opt);
-void	chunk_pa		(t_swap *swap, int num);
+void	chunk_pa		(int *chunk, int *len);
 void	chunk_pb		(t_swap *swap, int num);
 void	chunk_rb		(t_swap *swap, int num);
 void	chunk_rrb		(t_swap *swap, int num);
@@ -46,9 +49,12 @@ void	ft_free_int		(t_swap *swap, int **arr);
 char	*ft_strdup		(const char *s1);
 char	*ft_strjoin		(char const *s1, char const *s2);
 size_t	ft_strlen		(const char *s);
+int		get_mid_point	(int *arr, int len);
 void	get_number_top	(t_swap *swap, int i);
-void	hundred_numbers	(t_swap *swap, int check);
+void	hundred_numbers	(t_swap *swap);
 void	joiner			(t_swap *swap, char *line);
+void	mid_point_algo	(t_swap *swap, int *arr, int len);
+void	mid_point_algo_2(t_swap *swap);
 void	p_opt			(t_swap *swap, int opt);
 void	pa_opt			(t_swap *swap);
 void	pb_opt			(t_swap *swap);

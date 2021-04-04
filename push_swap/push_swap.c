@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/02 17:46:38 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/04 20:56:37 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	stack_creater(t_swap *swap, int i, char **argv)
 	}
 	swap->nums = (int **)malloc(sizeof(int *) * swap->chunk_num);
 	swap->chunks_len = malloc(sizeof(int) * i);
+	swap->chunk_a = malloc(sizeof(int) * i);
 	k = -1;
 	while (++k < swap->chunk_num)
 		swap->nums[k] = (int *)malloc(sizeof(int) * i);

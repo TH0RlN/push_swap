@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/02 20:01:13 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/04 23:21:31 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,118 +58,56 @@ int	get_mid_point(int *arr, int len)
 }
 
 
-void	hundred_numbers(t_swap *swap, int check)
+void	hundred_numbers(t_swap *swap)
 {
-	int	i;
 	int	j;
-	int	k;
 	int	mdp;
-	int	len_a;
-
+	
 	sort(swap);
-	i = -1;
-	while (++i < swap->a_elem)
-		swap->nums[0][i] = swap->pos[i];
-	i = -1;
 	j = -1;
-	k = -1;
+	while (++j < swap->a_elem)
+		swap->nums[0][j] = swap->pos[j];
+	j = -1;
 	mdp = 0;
+	swap->chunk_pos = -1;
+	swap->chunk_a_len = 0;
 	while (swap->b_elem != 0 || check_order(swap->nums[0], swap->a_elem))
 	{
-		/*while (++j < swap->a_elem)
-			printf("****NUM %d len:%d\n", swap->nums[0][j], swap->a_elem);*/
 		if (check_order(swap->nums[0], swap->a_elem))
 		{
-			j = -1;
-			i++;
-			//printf("********%d\n", i);
-			swap->chunks_len[i] = 0;
-			mdp = get_mid_point(swap->nums[0], swap->a_elem);
-			if (swap->a_elem % 2 != 0)
-				len_a = swap->a_elem / 2 + 1;
+			if (!swap->chunk_a_len)
+				mid_point_algo(swap, swap->nums[0], swap->a_elem);
 			else
-				len_a = swap->a_elem / 2;
-			while (swap->chunks_len[i] < len_a - 1)
 			{
-				//printf("-----%d    %d\n", swap->chunks_len[i], len_a);
-				if (swap->nums[0][0] < mdp)
-				{
-					chunk_pb(swap, i);
-					pb_opt(swap);
-				}
-				else if (swap->nums[0][swap->a_elem - 1]
-					< mdp)
-				{
-					rr_opt(swap, 9);
-					chunk_pb(swap, i);
-					pb_opt(swap);
-				}
-				else
-					r_opt(swap, 6);
+				mid_point_algo(swap, swap->chunk_a,swap->chunk_a_len);
+				break ;	
 			}
 		}
 		else
 		{
-			if (!(check_rev_order(swap->nums[i + 2], swap->chunks_len[i])))
+			if (!(check_rev_order(swap->nums[swap->chunk_pos + 2], swap->chunks_len[swap->chunk_pos])))
 			{
-				while (swap->chunks_len[i] > 0)
+				while (swap->chunks_len[swap->chunk_pos] > 0)
 				{
 					//printf("len: %d", swap->chunks_len[i]);
-					chunk_pa(swap, i);
+					chunk_pa(swap->nums[swap->chunk_pos + 2], &swap->chunks_len[swap->chunk_pos]);
 					pa_opt(swap);
 				}
-				i--;
+				swap->chunk_pos--;
 			}
-			else if (swap->chunks_len[i] < 3)
-			{
-				s_opt(swap, 1);
-				chunk_pa(swap, swap->chunks_len[i]);
-				pa_opt(swap);
-				i--;
-			}
-			else
+			else if (swap->chunks_len[swap->chunk_pos] < 3)
 			{
 				j = -1;
-				i++;
-				//printf("********%d\n", i);
-				swap->chunks_len[i] = 0;
-				mdp = get_mid_point(swap->nums[i + 2 - 1], swap->chunks_len[i - 1]);
-				if (swap->chunks_len[i - 1] % 2 != 0)
-					len_a = swap->chunks_len[i - 1] / 2 + 1;
-				else
-					len_a = swap->chunks_len[i - 1] / 2;
-				check = 0;
-				while (swap->chunks_len[i] < len_a - 1)
+				s_opt(swap, 2);
+				while (++j < 2)
 				{
-					//printf("-----%d    %d\n", swap->chunks_len[i], len_a);
-					while (++k < swap->chunks_len[i - 1])
-					{
-						if (swap->nums[1][k] > mdp)
-							check++;
-					}
-					while (check < len_a - 1)
-					{
-						check = 0;
-						while (++k < swap->chunks_len[i - 1])
-						{
-							if (swap->nums[1][k] > mdp)
-								check++;
-						}
-						chunk_rrb(swap, i - 1);
-						rr_opt(swap, 10);
-					}
-					if (swap->nums[i + 2 - 1][0] > mdp)
-					{
-						chunk_pb(swap, i);
-						pa_opt(swap);
-					}
-					else
-					{
-						chunk_rb(swap, i - 1);
-						r_opt(swap, 7);
-					}
+					chunk_pa(swap->nums[swap->chunk_pos + 2], &swap->chunks_len[swap->chunk_pos]);
+					pa_opt(swap);			
 				}
+				swap->chunk_pos--;
 			}
+			else
+				mid_point_algo_2(swap);
 		}
 		if (swap->a_elem < 3)
 		{
