@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/05 00:59:32 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 13:28:13 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_free_int		(t_swap *swap, int **arr);
 char	*ft_strdup		(const char *s1);
 char	*ft_strjoin		(char const *s1, char const *s2);
 size_t	ft_strlen		(const char *s);
-int		get_mid_point	(int *arr, int len);
+int		get_mid_point	(int *arr, int len, int opt);
 void	get_number_top	(t_swap *swap, int i);
 void	hundred_numbers	(t_swap *swap);
 void	joiner			(t_swap *swap, char *line);
