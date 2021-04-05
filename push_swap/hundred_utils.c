@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 20:34:39 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/05 13:32:11 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 17:13:26 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,7 @@ void	mid_point_algo_2(t_swap *swap)
 		len_a = swap->chunks_len[swap->chunk_pos] / 2 + 1;
 	else
 		len_a = swap->chunks_len[swap->chunk_pos] / 2;
-	//printf("MDP: %d, LEN_A %d\n", mdp, len_a);
-	arrange_chunk(swap, mdp, len_a);
+	//arrange_chunk(swap, mdp, len_a);
 	while (swap->chunk_a_len < len_a - 1)
 		rr += send_half_2(swap, mdp);
 	while (rr > 0)
@@ -173,7 +172,6 @@ void	mid_point_algo(t_swap *swap, int *arr, int len)
 		len_a = (len / 2) + 1;
 	else
 		len_a = len / 2;
-	//printf("MDP: %d, LEN_A %d\n", mdp, len_a);
 	while (swap->chunks_len[swap->chunk_pos] < len_a - 1)
 		rr += send_half(swap, mdp);
 	while (rr > 0)

@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/05 13:31:23 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/05 13:57:07 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	check_order(int *arr, int len)
 		if (arr[i] > arr[i + 1])
 			return (1);
 		i++;
-	//printf("******%d-----%d\n", arr[i], arr[i + 1]);
 	}
 	return (0);
 }
@@ -37,7 +36,6 @@ int	check_rev_order(int *arr, int len)
 		if (arr[i] < arr[i + 1])
 			return (1);
 		i++;
-	//printf("******%d-----%d\n", arr[i], arr[i + 1]);
 	}
 	return (0);
 }
@@ -108,7 +106,6 @@ void	hundred_numbers(t_swap *swap)
 			}
 			else
 			{
-				//printf("%d\n", swap->chunk_a_len);
 				if (swap->chunk_a_len < 3)
 				{
 						s_opt(swap, 1);
@@ -116,7 +113,6 @@ void	hundred_numbers(t_swap *swap)
 				}
 				else
 					mid_point_algo(swap, swap->chunk_a,swap->chunk_a_len);
-				//break ;
 			}
 		}
 		else
@@ -127,7 +123,6 @@ void	hundred_numbers(t_swap *swap)
 			{
 				while (swap->chunks_len[swap->chunk_pos] > 0)
 				{
-					//printf("len: %d", swap->chunks_len[i]);
 					chunk_pa(swap->nums[swap->chunk_pos + 2], &swap->chunks_len[swap->chunk_pos]);
 					pa_opt(swap);
 				}
