@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:49:24 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/05 13:28:13 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 14:39:24 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_swap
 {
 	int			**nums;
 	int			*pos;
-	int			tot_elem;
 	int			a_elem;
 	int			b_elem;
 	char		*inst;
@@ -37,6 +36,10 @@ typedef struct s_swap
 }				t_swap;
 
 int		check_opts		(char *opt);
+int		check_order		(int *arr, int len);
+int		check_rev_order	(int *arr, int len);
+void	chunk_2_chunk	(t_swap *swap);
+void	chunk_2_numbers	(t_swap *swap);
 void	chunk_pa		(int *chunk, int *len);
 void	chunk_pb		(t_swap *swap, int num);
 void	chunk_rb		(int *chunk, int len);
@@ -44,7 +47,7 @@ void	chunk_rrb		(int *chunk, int len);
 int		compare			(t_swap *swap);
 void	five_numbers	(t_swap *swap);
 int		ft_atoi			(const char *str);
-void	ft_exit			(t_swap *swap);
+void	ft_exit			(t_swap *swap, int opt);
 void	ft_free_int		(t_swap *swap, int **arr);
 char	*ft_strdup		(const char *s1);
 char	*ft_strjoin		(char const *s1, char const *s2);
@@ -67,7 +70,9 @@ void	rrb_opt			(t_swap *swap);
 void	s_opt			(t_swap *swap, int opt);
 void	s_opt3			(t_swap *swap);
 void	sort			(t_swap *swap);
+void	sorted_b		(t_swap *swap);
 void	swapping		(t_swap *swap);
 void	three_numbers	(t_swap *swap);
+void	unsorted_a		(t_swap *swap);
 
 #endif

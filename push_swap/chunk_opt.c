@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 19:21:38 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/05 00:58:55 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:27:23 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	chunk_rb(int *chunk, int len)
 void	chunk_pa(int *chunk, int *len)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = *len;

@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/25 16:49:14 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:23:09 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	joiner(t_check *check, char *line)
 	check->vals = join;
 	join = ft_strjoin(check->vals, line);
 	free (check->vals);
+	free(line);
 	check->vals = join;
 	return ;
 }
@@ -38,15 +39,19 @@ void	checker(t_check *check)
 		if (!check_opts(line))
 			exit(printf("Error\n"));
 		if (!check->vals)
-			check->vals = ft_strdup(line);
+			check->vals = line;
 		else
 			joiner(check, line);
 		i++;
 	}
 	if (!i)
-		return ;
+	{
+		compare(check);
+		ft_free(check, 0);
+	}
 	joiner(check, line);
 	check->opts = ft_split(check->vals, '\n');
+	free(check->vals);
 	exec(check);
 }
 
@@ -85,11 +90,12 @@ int	main(int argc, char **argv)
 	int		j;
 	t_check	*check;
 
-	check = malloc(sizeof(t_check));
-	i = 1;
+	i = 0;
 	if (argc < 2)
 		return (0);
-	while (argv[i])
+	else if (argc == 2)
+		exit(printf("OK\n"));
+	while (argv[++i])
 	{
 		j = 0;
 		while (argv[i][j])
@@ -99,11 +105,10 @@ int	main(int argc, char **argv)
 				return (printf("Error\n"));
 			j++;
 		}
-		i++;
 	}
+	check = malloc(sizeof(t_check));
 	stack_creater(check, i, argv);
 	checker(check);
 	compare(check);
-	free(check);
-	return (0);
+	ft_free(check, 1);
 }
