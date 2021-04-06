@@ -6,11 +6,41 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 13:57:34 by agianico          #+#    #+#             */
-/*   Updated: 2021/04/06 12:33:24 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 15:51:48 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	opt_c(t_check *check, int i)
+{
+	int	k;
+
+	k = -1;
+	printf("\033[0;31m\n\n\n===== STEP: %3d =====\n", i);
+	printf("\033[0;33mA:\n");
+	while (++k < check->a_elem)
+		printf("\t%d:\t%d\n", k, check->nums[0][k]);
+	printf("\033[0;36mB:\n");
+	k = -1;
+	while (++k < check->b_elem)
+		printf("\t%d:\t%d\n", k, check->nums[1][k]);
+}
+
+void	opt_v(t_check *check, int i)
+{
+	int	k;
+
+	k = -1;
+	printf("\n\n\n===== STEP: %3d =====\n", i);
+	printf("A:\n");
+	while (++k < check->a_elem)
+		printf("\t%d:\t%d\n", k, check->nums[0][k]);
+	printf("B:\n");
+	k = -1;
+	while (++k < check->b_elem)
+		printf("\t%d:\t%d\n", k, check->nums[1][k]);
+}
 
 void	exec(t_check *check)
 {
@@ -18,13 +48,10 @@ void	exec(t_check *check)
 	int	opt;
 
 	i = 0;
-	/**/printf("\n\n\n===== STEP: %3d =====\n", i);
-	/**/printf("A:\n");
-	/**/for (int k = 0; k < check->a_elem; k++)
-	/**/	printf("\t%d:\t%d\n", k, check->nums[0][k]);
-	/**/printf("B:\n");
-	/**/for (int k = 0; k < check->b_elem; k++)
-	/**/	printf("\t%d:\t%d\n", k, check->nums[1][k]);
+	if (check->c)
+		opt_c(check, i);
+	else if (check->v)
+		opt_v(check, i);
 	while (check->opts[i])
 	{
 		opt = check_opts(check->opts[i]);
@@ -36,14 +63,10 @@ void	exec(t_check *check)
 			r_opt(check, opt);
 		else if (opt > 8 && opt < 12)
 			rr_opt(check, opt);
-		/**/printf("\n\n\n===== STEP: %3d =====\n\n", i + 1);
-		/**/printf("A:\n");
-		/**/for (int k = 0; k < check->a_elem; k++)
-		/**/	printf("\t%d:\t%d\n", k, check->nums[0][k]);
-		/**/printf("B:\n");
-		/**/for (int k = 0; k < check->b_elem; k++)
-		/**/	printf("\t%d:\t%d\n", k, check->nums[1][k]);
+		if (check->c)
+			opt_c(check, i);
+		else if (check->v)
+			opt_v(check, i);
 		i++;
 	}
-	//printf("\n\n\n===== STEP: %3d =====\n\n", i);
 }

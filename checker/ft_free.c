@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 12:48:06 by agianico          #+#    #+#             */
-/*   Updated: 2021/04/06 13:25:35 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 15:58:32 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	ft_free(t_check *check, int opt)
 		ft_free_arr(check->opts);
 	ft_free_int(check->nums);
 	free(check);
+	printf("\033[0m");
 	exit(0);
 }
