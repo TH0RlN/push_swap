@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:28:59 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/06 14:38:32 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:35:49 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	swapping(t_swap *swap)
 	if (!compare(swap))
 		ft_exit(swap, 0);
 	else if (swap->a_elem == 2)
-		swap->inst = ft_strdup("sa\n");
+	{
+		printf("sa\n");
+		ft_exit(swap, 0);
+	}
 	else if (swap->a_elem == 3)
 		three_numbers(swap);
 	else if (swap->a_elem == 5 || swap->a_elem == 4)

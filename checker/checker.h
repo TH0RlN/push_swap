@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:45:35 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/06 15:36:40 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:27:23 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_check
 }				t_check;
 
 void			checker			(t_check *check);
+int				check_numbers	(char **argv, int i, int argc, int v);
 int				check_opts		(char *opt);
 void			compare			(t_check *check);
 void			exec			(t_check *check);

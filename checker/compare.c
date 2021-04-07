@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:59:46 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/06 15:56:39 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:24:30 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,4 @@ void	compare(t_check *check)
 	if (check->c)
 		printf("\033[0;32m");
 	printf("OK\n");
-	ft_free(check, 1);
 }

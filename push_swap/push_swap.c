@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:42:36 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/04/06 14:45:12 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:30:27 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ int	main(int argc, char **argv)
 	swap->inst = 0;
 	stack_creater(swap, i, argv);
 	swapping(swap);
-	i = -1;
 	printf("%s", swap->inst);
 	free(swap->inst);
 	ft_exit(swap, 1);

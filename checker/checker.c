@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/06 15:58:37 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:27:33 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	stack_creater(t_check *check, int i, char **argv)
 	checker(check);
 }
 
-int	check_numbers(char **argv, int i)
+int	check_numbers(char **argv, int i, int argc, int v)
 {
 	int	j;
 
@@ -100,6 +100,8 @@ int	check_numbers(char **argv, int i)
 			j++;
 		}
 	}
+	if (argc == 2 || (v && argc == 3))
+		exit(printf("OK\n"));
 	return (i);
 }
 
@@ -122,12 +124,11 @@ int	main(int argc, char **argv)
 		if (!ft_strcmp(argv[1], "-c"))
 			c = 1;
 	}
-	i = check_numbers(argv, i);
-	if (argc == 2 || (v && argc == 3))
-		exit(printf("OK\n"));
+	i = check_numbers(argv, i, argc, v);
 	check = malloc(sizeof(t_check));
 	check->v = v;
 	check->c = c;
 	stack_creater(check, i, argv);
 	compare(check);
+	ft_free(check, 1);
 }
