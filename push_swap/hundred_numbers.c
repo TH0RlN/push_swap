@@ -6,153 +6,107 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:59:13 by antmarti          #+#    #+#             */
-/*   Updated: 2021/04/01 16:16:37 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:56:45 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	move_number_rev(t_swap *swap, int *bool)
+int	check_order(int *arr, int len)
 {
-	int	min;
 	int	i;
-	int	pos;
 
-	min = 0;
 	i = 0;
-	pos = 0;
-	while (i < swap->b_elem)
+	while (len - 1 > i)
 	{
-		if (swap->nums[0][0] > swap->nums[1][i])
-		{
-			if (!*bool)
-			{
-				min = swap->nums[1][i];
-				pos = i;
-				*bool = 1;
-			}
-			else if (min < swap->nums[1][i])
-			{
-				min = swap->nums[1][i];
-				pos = i;
-			}
-		}
+		if (arr[i] > arr[i + 1])
+			return (1);
 		i++;
 	}
-	//printf("******%d y %d\n", min, *pos);
-	return (pos);
+	return (0);
 }
 
-void	order_b(t_swap *swap)
+int	check_rev_order(int *arr, int len)
 {
-	int	pos;
-	int	bool;
+	int	i;
 
-	bool = 0;
-	pos = move_number_rev(swap, &bool);
-	if (bool)
+	i = 0;
+	while (len - 1 > i)
 	{
-		if (pos < swap->b_elem / 2)
+		if (arr[i] < arr[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	get_mid_pos(int len, int *arr, int opt, int i)
+{
+	int	j;
+	int	pos;
+
+	j = -1;
+	pos = 0;
+	while (++j < len)
+	{
+		if (opt)
 		{
-			while (pos > 0)
-			{
-				r_opt(swap, 7);
-				pos--;
-			}
+			if (arr[j] < arr[i])
+				pos++;
 		}
 		else
 		{
-			while (pos < swap->b_elem)
-			{
-				rr_opt(swap, 10);
+			if (arr[j] > arr[i])
 				pos++;
-			}
 		}
 	}
+	return (pos);
+}
+
+int	get_mid_point(int *arr, int len, int opt)
+{
+	int	i;
+	int	med;
+
+	i = 0;
+	if (len % 2)
+		med = len / 2;
 	else
+		med = (len / 2) - 1;
+	while (i < len)
 	{
-		pos = 1;
-		while (swap->nums[1][pos - 1] > swap->nums[1][pos]
-			&& pos < swap->b_elem)
-			pos++;
-		if (pos != swap->b_elem)
-		{
-			if (pos < swap->b_elem / 2)
-			{
-				while (pos > 0)
-				{
-					r_opt(swap, 7);
-					pos--;
-				}
-			}
-			else
-			{
-				while (pos < swap->b_elem)
-				{
-					rr_opt(swap, 10);
-					pos++;
-				}
-			}
-		}
+		if (get_mid_pos(len, arr, opt, i) == med)
+			break ;
+		i++;
 	}
-	pb_opt(swap);
-}
-
-void	get_number_top(t_swap *swap, int i)
-{
-	while (i > 0)
-	{
-		r_opt(swap, 6);
-		i--;
-	}
-	order_b(swap);
-}
-
-void	get_number_bottom(t_swap *swap, int j)
-{
-	while (j < swap->a_elem)
-	{
-		rr_opt(swap, 9);
-		j++;
-	}
-	order_b(swap);
+	return (arr[i]);
 }
 
 void	hundred_numbers(t_swap *swap)
 {
-	int	i;
 	int	j;
-	int	k;
 
 	sort(swap);
-	i = -1;
-	while (++i < swap->a_elem)
-		swap->nums[0][i] = swap->pos[i];
-	i = -1;
-	k = 0;
-	j = swap->a_elem;
-	while (k < swap->tot_elem)
+	j = -1;
+	while (++j < swap->a_elem)
+		swap->nums[0][j] = swap->pos[j];
+	swap->chunk_pos = -1;
+	swap->chunk_a_len = 0;
+	while (swap->b_elem != 0 || check_order(swap->nums[0], swap->a_elem))
 	{
-		/*while ( ++i < swap->a_elem / 2 + 1)
+		if (check_order(swap->nums[0], swap->a_elem))
+			unsorted_a(swap);
+		else
 		{
-			if (swap->nums[0][i] < (k/50 + 1) * 50)
-				break ;
+			if (swap->chunk_a_len)
+				swap->chunk_a_len = 0;
+			if (!(check_rev_order(swap->nums[swap->chunk_pos + 2],
+						swap->chunks_len[swap->chunk_pos])))
+				sorted_b(swap);
+			else if (swap->chunks_len[swap->chunk_pos] < 3)
+				chunk_2_numbers(swap);
+			else
+				mid_point_algo_2(swap);
 		}
-		while (--j > swap->a_elem / 2 - 1)
-		{
-			//printf("j: %d\n", j);
-			if (swap->nums[0][j] < (k/50 + 1) * 50)
-				break ;
-		}
-		//printf("*****%d     %d\n", i, j);
-		if (i <= swap->a_elem - j)*/
-		get_number_top(swap, i);
-		/*else
-			get_number_bottom(swap, j);*/
-		k++;
 	}
-	while (swap->nums[1][0] != swap->b_elem - 1)
-		rr_opt(swap, 10);
-	while (swap->a_elem < swap->tot_elem)
-		pa_opt(swap);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:21:35 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/26 18:12:21 by agianico         ###   ########.fr       */
+/*   Updated: 2021/04/06 12:49:20 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ void	three_numbers(t_swap *swap)
 		rr_opt(swap, 9);
 	else if (swap->pos[0] == 1 && swap->pos[1] == 0 && swap->pos[2] == 2)
 		s_opt(swap, 1);
-	free(swap->pos);
 }

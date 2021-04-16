@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:45:35 by rarias-p          #+#    #+#             */
-/*   Updated: 2021/03/26 17:37:47 by agianico         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:27:23 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,17 @@
 
 typedef struct s_check
 {
-	int			tot_elem;
 	int			**nums;
 	char		*vals;
 	int			b_elem;
 	int			a_elem;
 	char		**opts;
+	int			v;
+	int			c;
 }				t_check;
 
 void			checker			(t_check *check);
+int				check_numbers	(char **argv, int i, int argc, int v);
 int				check_opts		(char *opt);
 void			compare			(t_check *check);
 void			exec			(t_check *check);
@@ -39,6 +41,7 @@ char			*ft_acc			(char *file, char *buffer);
 int				ft_atoi			(const char *str);
 int				ft_aux			(char **line);
 int				ft_checker		(int fd, char **line, char **file, int ret);
+void			ft_free			(t_check *check, int opt);
 void			ft_free_arr		(char **arr);
 void			ft_free_int		(int **arr);
 char			**ft_split		(char *s, char c);

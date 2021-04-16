@@ -6,14 +6,15 @@
 #    By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:31:40 by rarias-p          #+#    #+#              #
-#    Updated: 2021/03/30 18:10:29 by antmarti         ###   ########.fr        #
+#    Updated: 2021/04/06 14:46:45 by antmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_SW=	push_swap/ft_free.c push_swap/push_swap.c push_swap/utils.c \
 			push_swap/swapping.c push_swap/get_next_line_utils.c push_swap/s_opt.c \
 			push_swap/five_numbers.c push_swap/three_numbers.c push_swap/p_opt.c \
-			push_swap/r_opt.c push_swap/rr_opt.c push_swap/hundred_numbers.c 
+			push_swap/r_opt.c push_swap/rr_opt.c push_swap/hundred_numbers.c \
+			push_swap/chunk_opt.c push_swap/hundred_utils.c push_swap/hundred_utils2.c
 
 SRCS_CH=	checker/get_next_line.c checker/get_next_line_utils.c \
 			checker/checker.c checker/utils.c checker/ft_split.c \
@@ -36,7 +37,8 @@ OBJS=	ft_free.o push_swap.o utils.o \
 		checker.o utils.o ft_split.o \
 		ft_free.o check_opts.o exec.o \
 		p_opt.o r_opt.o rr_opt.o compare.o s_opt.o \
-		five_numbers.o three_numbers.o hundred_numbers.o
+		five_numbers.o three_numbers.o hundred_numbers.o \
+		chunk_opt.o hundred_utils.o hundred_utils2.o
 
 NAME_SW = push_swap/push_swap
 

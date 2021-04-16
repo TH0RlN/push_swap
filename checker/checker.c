@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 18:20:28 by antmarti          #+#    #+#             */
-/*   Updated: 2021/03/25 16:49:14 by antmarti         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:27:33 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	joiner(t_check *check, char *line)
 	check->vals = join;
 	join = ft_strjoin(check->vals, line);
 	free (check->vals);
+	free(line);
 	check->vals = join;
 	return ;
 }
@@ -38,15 +39,19 @@ void	checker(t_check *check)
 		if (!check_opts(line))
 			exit(printf("Error\n"));
 		if (!check->vals)
-			check->vals = ft_strdup(line);
+			check->vals = line;
 		else
 			joiner(check, line);
 		i++;
 	}
 	if (!i)
-		return ;
+	{
+		compare(check);
+		ft_free(check, 0);
+	}
 	joiner(check, line);
 	check->opts = ft_split(check->vals, '\n');
+	free(check->vals);
 	exec(check);
 }
 
@@ -57,15 +62,14 @@ void	stack_creater(t_check *check, int i, char **argv)
 
 	j = 1;
 	check->nums = malloc(sizeof(int *) * 2);
-	check->nums[0] = malloc(sizeof(int) * i - 1);
-	check->nums[1] = malloc(sizeof(int) * i - 1);
-	check->tot_elem = i - 1;
-	check->a_elem = i - 1;
+	check->nums[0] = malloc(sizeof(int) * i - 1 - check->v);
+	check->nums[1] = malloc(sizeof(int) * i - 1 - check->v);
+	check->a_elem = i - 1 - check->v;
 	check->b_elem = 0;
-	while (argv[j])
+	while (argv[j + check->v])
 	{
-		check->nums[0][j - 1] = ft_atoi(argv[j]);
-		k = 1;
+		check->nums[0][j - 1] = ft_atoi(argv[j + check->v]);
+		k = 1 + check->v;
 		while (j - (++k) >= 0)
 		{
 			if (check->nums[0][j - 1] == check->nums[0][j - k])
@@ -77,33 +81,54 @@ void	stack_creater(t_check *check, int i, char **argv)
 		}
 		j++;
 	}
+	checker(check);
 }
 
-int	main(int argc, char **argv)
+int	check_numbers(char **argv, int i, int argc, int v)
 {
-	int		i;
-	int		j;
-	t_check	*check;
+	int	j;
 
-	check = malloc(sizeof(t_check));
-	i = 1;
-	if (argc < 2)
-		return (0);
-	while (argv[i])
+	j = 0;
+	while (argv[++i])
 	{
 		j = 0;
 		while (argv[i][j])
 		{
 			if (!((argv[i][j] <= '9' && argv[i][j] >= '0')
 					|| (argv[i][j] == '-' && j == 0)))
-				return (printf("Error\n"));
+				exit(printf("Error\n"));
 			j++;
 		}
-		i++;
 	}
+	if (argc == 2 || (v && argc == 3))
+		exit(printf("OK\n"));
+	return (i);
+}
+
+int	main(int argc, char **argv)
+{
+	int		i;
+	int		v;
+	int		c;
+	t_check	*check;
+
+	i = 0;
+	v = 0;
+	c = 0;
+	if (argc < 2)
+		return (0);
+	if (!ft_strcmp(argv[1], "-v") || (!ft_strcmp(argv[1], "-c")))
+	{
+		v = 1;
+		i = 1;
+		if (!ft_strcmp(argv[1], "-c"))
+			c = 1;
+	}
+	i = check_numbers(argv, i, argc, v);
+	check = malloc(sizeof(t_check));
+	check->v = v;
+	check->c = c;
 	stack_creater(check, i, argv);
-	checker(check);
 	compare(check);
-	free(check);
-	return (0);
+	ft_free(check, 1);
 }

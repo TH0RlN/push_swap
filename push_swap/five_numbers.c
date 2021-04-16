@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   five_numbers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agianico <agianico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:22:38 by agianico          #+#    #+#             */
-/*   Updated: 2021/03/26 19:30:58 by agianico         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:31:21 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int move_number(t_swap *swap, int *pos, int *bool)
+int	move_number(t_swap *swap, int *pos, int *bool)
 {
-	int min;
-	int i;
+	int	min;
+	int	i;
 
 	min = 0;
 	i = 0;
@@ -37,16 +37,35 @@ int move_number(t_swap *swap, int *pos, int *bool)
 		}
 		i++;
 	}
-	//printf("******%d y %d\n", min, *pos);
 	return (min);
+}
+
+void	five_pos(t_swap *swap, int pos)
+{
+	if (pos == 1)
+	{
+		r_opt(swap, 6);
+		pa_opt(swap);
+		rr_opt(swap, 9);
+	}
+	else if (pos == 2 || pos == 3)
+	{
+		rr_opt(swap, 9);
+		if (swap->a_elem == 4 && pos == 2)
+			rr_opt(swap, 9);
+		pa_opt(swap);
+		r_opt(swap, 6);
+		r_opt(swap, 6);
+		if (swap->a_elem == 5 && pos == 2)
+			r_opt(swap, 6);
+	}
 }
 
 void	five_numbers(t_swap *swap)
 {
 	int	num;
-	int pos;
-	int bool;
-
+	int	pos;
+	int	bool;
 
 	if (swap->a_elem == 5)
 		pb_opt(swap);
@@ -62,25 +81,9 @@ void	five_numbers(t_swap *swap)
 			pa_opt(swap);
 			r_opt(swap, 6);
 		}
-		else if (pos == 1)
-		{
-			r_opt(swap, 6);
-			pa_opt(swap);
-			rr_opt(swap, 9);
-		}
-		else if (pos == 2 || pos == 3)
-		{
-			rr_opt(swap, 9);
-			if (swap->a_elem == 4 && pos == 2)
-				rr_opt(swap, 9);
-			pa_opt(swap);
-			r_opt(swap, 6);
-			r_opt(swap, 6);
-			if (swap->a_elem == 5 && pos == 2)
-				r_opt(swap, 6);
-		}
+		else if (pos == 1 || pos == 2 || pos == 3)
+			five_pos(swap, pos);
 		else
 			pa_opt(swap);
-		//printf("-------%s\n-------", swap->inst);
 	}
 }
